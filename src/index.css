@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    border-style: solid;
-    border-color: green;
-    border-width: 2px;
+.graph-box{
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    bottom: 200px;
+    left: 450px;
 }
 
 
