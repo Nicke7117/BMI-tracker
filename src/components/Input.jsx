@@ -3,8 +3,7 @@ import React from 'react'
 export const Input = (props) => {
     return (
         <>
-        <label htmlFor={props.id}>{props.id === "weight" ? "Weight (kg)" : "Height (cm)"}</label>
-        <input type="text" id={props.id} className={props.className + "absolute bottom-5"}/>
+        <input type="text" id={props.id} className={props.className + " w-10 h-10 rounded-xl mx-3"}/>
         </>
     )
 }

@@ -1,11 +1,15 @@
 import React from "react";
-import { Input } from "./Input"
+import { Input } from "./Input";
+import { Inputlabel } from "./Inputlabel"
+
 export const Userinput = () => {
   return (
-    <div className="flex justify-center bg-black w-full mt-12 h-32">
-      <form className="w-1/3 relative grid grid-column-2">
-          <Input className="left-4 " id="weight"/>
-          <Input className="right-4 " id="height"/>
+    <div className="flex justify-center w-full mt-12 h-32">
+      <form className="w-1/3 grid relative grid-cols-2 items-center ">
+        <Inputlabel htmlFor="weight" className="col-start-1 col-end-2 right-0 "/>
+        <Input className="col-start-1 col-end-2 right-3 absolute items-center" id="weight" />
+        <Inputlabel htmlFor="height" className="left-0 col-start-2 col-end-3 "/>
+        <Input className="col-start-2 col-end-3 left-3 absolute " id="height" />
       </form>
     </div>
   );
