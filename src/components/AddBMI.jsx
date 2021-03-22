@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Input } from "./Input";
 import { Inputlabel } from "./Inputlabel";
 
-export const Userinput = ({ onClick, setWeight, setHeight }) => {
+export const AddBMI = ({ onClick }) => {
+
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0])
+  const [weight, setWeight] = useState()
+  const [height, setHeight] = useState()
 
 
 
@@ -17,7 +21,7 @@ export const Userinput = ({ onClick, setWeight, setHeight }) => {
         <Input
           className="col-start-1 col-end-2 right-3 absolute items-center"
           id="weight"
-          onKeyUp={setWeight}
+          onKeyUp={(e) => setWeight(e.target.value)}
         />
         <Inputlabel
           htmlFor="height"
@@ -26,7 +30,7 @@ export const Userinput = ({ onClick, setWeight, setHeight }) => {
         <Input
           className="col-start-2 col-end-3 left-3 absolute "
           id="height"
-          onKeyUp={setHeight}
+          onKeyUp={(e) => setHeight(e.target.value)}
         />
         <input
           type="submit"
