@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input } from "./Input";
 import { Inputlabel } from "./Inputlabel";
 
-export const AddBMI = ({ onClick }) => {
+export const AddBMI = ({ addData }) => {
   const [userData, setUserData] = useState({
     weight: null,
     height: null,
@@ -12,13 +12,17 @@ export const AddBMI = ({ onClick }) => {
 
   function sendDataToApp(e){
     e.preventDefault()
+    const heightSquared = Math.pow((userData.height / 100), 2)
+    const calculateBMI = userData.weight / heightSquared;
+    userData.bmi = calculateBMI
+    addData(userData);
     console.log(userData)
-    return userData;
+  
   }
 
   return (
-    <div className="flex justify-center w-full mt-12 h-32">
-      <form className="w-1/3 grid relative grid-cols-2 items-center">
+    <div className="flex justify-center w-full mt-12 h-32" >
+      <form className="w-1/3 grid relative grid-cols-2 items-center" onSubmit={sendDataToApp}>
         <Inputlabel
           htmlFor="weight"
           className="col-start-1 col-end-2 right-0 "
@@ -41,7 +45,6 @@ export const AddBMI = ({ onClick }) => {
           type="submit"
           value="submit"
           className="absolute bottom-1 left-72 rounded-xl p-1"
-          onClick={() => onClick(sendDataToApp)}
           disabled={userData.weight === null || userData.height === null}
         />
       </form>

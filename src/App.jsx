@@ -5,28 +5,22 @@ import { useState } from "react";
 
 const App = () => {
   const currentDate = new Date().toISOString().split("T")[0];
-  const [bmi, setBmi] = useState([
-    { weight: 55, height: 155, date: currentDate, id: 1 },
-  ]);
+  const [bmi, setBmi] = useState([]);
 
-  function bmiToChart(e, newBmi) {
-    e.preventDefault(
-      
-    )
-/*     setBmi([...bmi, newBmi])
+  function bmiToChart(newBmi) {
+    setBmi([...bmi, newBmi]);
+    console.log(bmi);
+
+    /*     setBmi([...bmi, newBmi])
     console.log(bmi); */
   }
   return (
     <div className="h-screen w-screen bg-green-200 relative">
       <Title />
-      <AddBMI 
-        onClick={(newBmi) => bmiToChart(newBmi)}
-/>
-      <Chart  />
+      <AddBMI addData={bmiToChart} />
+      <Chart />
     </div>
   );
 };
 
 export default App;
-
-
