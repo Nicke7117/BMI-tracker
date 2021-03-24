@@ -7,7 +7,7 @@ const App = () => {
   const currentDate = new Date().toISOString().split("T")[0];
   const [bmi, setBmi] = useState([]);
 
-  function bmiToChart(newBmi) {
+  function bmiToHook(newBmi) {
     setBmi([...bmi, newBmi]);
     console.log(bmi);
 
@@ -17,8 +17,8 @@ const App = () => {
   return (
     <div className="h-screen w-screen bg-green-200 relative">
       <Title />
-      <AddBMI addData={bmiToChart} />
-      <Chart />
+      <AddBMI addData={bmiToHook} />
+      <Chart dataToChart={bmi}/>
     </div>
   );
 };

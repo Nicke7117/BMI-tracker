@@ -6,23 +6,34 @@ export const AddBMI = ({ addData }) => {
   const [userData, setUserData] = useState({
     weight: null,
     height: null,
-    bmi: 22,
+    bmi: null,
     date: new Date().toISOString().split("T")[0],
   });
 
-  function sendDataToApp(e){
-    e.preventDefault()
-    const heightSquared = Math.pow((userData.height / 100), 2)
+  const initialState = {
+    weight: null,
+    height: null,
+    bmi: null,
+    date: new Date().toISOString().split("T")[0],
+  }
+
+  function sendDataToApp(e) {
+    e.preventDefault();
+    const heightSquared = Math.pow(userData.height / 100, 2);
     const calculateBMI = userData.weight / heightSquared;
-    userData.bmi = calculateBMI
+    userData.bmi = calculateBMI;
     addData(userData);
-    console.log(userData)
-  
+    setUserData(...initialState);
+
+    console.log(userData, " is it removed");
   }
 
   return (
-    <div className="flex justify-center w-full mt-12 h-32" >
-      <form className="w-1/3 grid relative grid-cols-2 items-center" onSubmit={sendDataToApp}>
+    <div className="flex justify-center w-full mt-12 h-32">
+      <form
+        className="w-1/3 grid relative grid-cols-2 items-center"
+        onSubmit={sendDataToApp}
+      >
         <Inputlabel
           htmlFor="weight"
           className="col-start-1 col-end-2 right-0 "
@@ -51,4 +62,3 @@ export const AddBMI = ({ addData }) => {
     </div>
   );
 };
-
