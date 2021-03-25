@@ -23,9 +23,8 @@ export const AddBMI = ({ addData }) => {
     const calculateBMI = userData.weight / heightSquared;
     userData.bmi = calculateBMI;
     addData(userData);
-    setUserData(...initialState);
+    setUserData({...initialState});
 
-    console.log(userData, " is it removed");
   }
 
   return (
