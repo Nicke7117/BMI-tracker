@@ -29,12 +29,6 @@ export const Form = ({ addData }) => {
     ref.current.reset();
   }
 
-/*   const numbersOnly = 
-
-
-  function inputNumberRegex(input){
-    if (input)
-  } */
 
   return (
     <div className="flex justify-center w-full mt-12 h-32">
@@ -65,7 +59,7 @@ export const Form = ({ addData }) => {
           type="submit"
           value="submit"
           className="absolute bottom-1 left-72 rounded-xl p-1"
-          disabled={userData.weight === null || userData.height === null}
+          disabled={userData.weight === "" || userData.height === ""}
         />
       </form>
     </div>
