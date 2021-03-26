@@ -29,6 +29,13 @@ export const Form = ({ addData }) => {
     ref.current.reset();
   }
 
+/*   const numbersOnly = 
+
+
+  function inputNumberRegex(input){
+    if (input)
+  } */
+
   return (
     <div className="flex justify-center w-full mt-12 h-32">
       <form
