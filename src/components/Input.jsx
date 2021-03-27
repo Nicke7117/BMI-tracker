@@ -1,4 +1,4 @@
-export const Input = ({ id, className, onChange }) => {
+export const Input = ({ id, className, onChange, value }) => {
   return (
     <>
       <input
@@ -6,6 +6,7 @@ export const Input = ({ id, className, onChange }) => {
         id={id}
         className={className + " w-10 h-10 rounded-xl mx-3"}
         onChange={onChange}
+        value={value}
       />
     </>
   );
