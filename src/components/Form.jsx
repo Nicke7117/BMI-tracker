@@ -19,8 +19,6 @@ export const Form = ({ addData }) => {
     date: new Date().toISOString().split("T")[0],
   };
 
-  const ref = useRef(null);
-
   function updateState(e) {
     const targetId = e.target.id;
     setUserData({ ...userData, [targetId]: e.target.value });
@@ -29,13 +27,11 @@ export const Form = ({ addData }) => {
 
   function sendDataToApp(e) {
     e.preventDefault();
-    const heightSquared = Math.pow(userData.height / 100, 2);
-    const calculateBMI = userData.weight / heightSquared;
+    const calculateBMI = userData.weight / Math.pow(userData.height / 100, 2);
     userData.bmi = calculateBMI;
     addData(userData);
     setUserData({ ...initialState });
-    Object.keys(localStorage).forEach((key) => localStorage.setItem(key, ""));
-    ref.current.reset();
+    localStorage.clear()
   }
 
   return (
@@ -43,7 +39,6 @@ export const Form = ({ addData }) => {
       <form
         className="w-1/3 grid relative grid-cols-2 items-center"
         onSubmit={sendDataToApp}
-        ref={ref}
       >
         <Inputlabel
           htmlFor="weight"
