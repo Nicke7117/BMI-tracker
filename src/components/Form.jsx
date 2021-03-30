@@ -1,13 +1,15 @@
 import React, { useState, useRef } from "react";
 import { Input } from "./Input";
 import { Inputlabel } from "./Inputlabel";
+import { v4 as uuidv4 } from "uuid";
 
 export const Form = ({ addData }) => {
   const [userData, setUserData] = useState({
-    weight: "",
-    height: "",
+    weight: localStorage.getItem("weight"),
+    height: localStorage.getItem("height"),
     bmi: null,
     date: new Date().toISOString().split("T")[0],
+    id: uuidv4(),
   });
 
   const initialState = {
@@ -23,7 +25,6 @@ export const Form = ({ addData }) => {
     const targetId = e.target.id;
     setUserData({ ...userData, [targetId]: e.target.value });
     localStorage.setItem(`${targetId}`, e.target.value);
-    const localStorageItem = localStorage.getItem(targetId);
   }
 
   function sendDataToApp(e) {
@@ -33,6 +34,7 @@ export const Form = ({ addData }) => {
     userData.bmi = calculateBMI;
     addData(userData);
     setUserData({ ...initialState });
+    Object.keys(localStorage).forEach((key) => localStorage.setItem(key, ""));
     ref.current.reset();
   }
 
@@ -51,7 +53,7 @@ export const Form = ({ addData }) => {
           className="col-start-1 col-end-2 right-3 absolute items-center"
           id="weight"
           onChange={updateState}
-          value={localStorage.getItem("weight")}
+          value={userData.weight}
         />
         <Inputlabel
           htmlFor="height"
@@ -61,7 +63,7 @@ export const Form = ({ addData }) => {
           className="col-start-2 col-end-3 left-3 absolute "
           id="height"
           onChange={updateState}
-          value={localStorage.getItem("height")}
+          value={userData.height}
         />
         <input
           type="submit"
@@ -73,3 +75,4 @@ export const Form = ({ addData }) => {
     </div>
   );
 };
+
