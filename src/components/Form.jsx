@@ -17,6 +17,7 @@ export const Form = ({ addData }) => {
     height: "",
     bmi: null,
     date: new Date().toISOString().split("T")[0],
+    id: uuidv4(),
   };
 
   function updateState(e) {
@@ -29,6 +30,8 @@ export const Form = ({ addData }) => {
     e.preventDefault();
     const calculateBMI = userData.weight / Math.pow(userData.height / 100, 2);
     userData.bmi = calculateBMI;
+    console.log(uuidv4())
+    console.log(userData.id)
     addData(userData);
     setUserData({ ...initialState });
     localStorage.clear()
