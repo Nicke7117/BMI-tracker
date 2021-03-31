@@ -41,35 +41,31 @@ export const Form = ({ addData }) => {
   }
 
   return (
-    <div className="flex justify-center mt-0 h-32 bg-yellow-300">
-      <form
-        className="w-1/3 grid relative grid-cols-2 items-center"
-        onSubmit={sendDataToApp}
-      >
-        <Inputlabel
-          htmlFor="weight"
-          className="col-start-1 col-end-2 right-0 "
-        />
-        <Input
-          className="col-start-1 col-end-2 right-3 absolute items-center"
-          id="weight"
-          onChange={updateState}
-          value={userData.weight}
-        />
-        <Inputlabel
-          htmlFor="height"
-          className="left-0 col-start-2 col-end-3 "
-        />
-        <Input
-          className="col-start-2 col-end-3 left-3 absolute "
-          id="height"
-          onChange={updateState}
-          value={userData.height}
-        />
+    <div className="py-5 justify-center flex">
+      <form className="" onSubmit={sendDataToApp}>
+        <section>
+          <div className="float-left">
+            <Inputlabel htmlFor="weight" />
+
+            <Input
+              id="weight"
+              onChange={updateState}
+              value={userData.weight}
+            />
+          </div>
+          <div className="float-left">
+            <Inputlabel htmlFor="height" />
+            <Input
+              id="height"
+              onChange={updateState}
+              value={userData.height}
+            />
+          </div>
+        </section>
         <input
           type="submit"
           value="submit"
-          className="absolute bottom-1 left-72 rounded-xl p-1"
+          className="rounded-xl w-48 h-10 mt-2 bg-blue-200 text-xl ml-4 disabled:bg-black"
           disabled={userData.weight === "" || userData.height === ""}
         />
       </form>

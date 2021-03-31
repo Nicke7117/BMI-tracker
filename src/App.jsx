@@ -11,10 +11,10 @@ export const App = () => {
   }
 
   return (
-    <div className="bg-green-200">
+    <div className="bg-pink-300 w-screen h-screen">
       <Title />
       <Form addData={bmiDataToHook} />
-      <Chart />
+
     </div>
   );
 };
