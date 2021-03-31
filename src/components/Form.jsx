@@ -30,11 +30,14 @@ export const Form = ({ addData }) => {
     e.preventDefault();
     const calculateBMI = userData.weight / Math.pow(userData.height / 100, 2);
     userData.bmi = calculateBMI;
-    console.log(uuidv4())
-    console.log(userData.id)
     addData(userData);
     setUserData({ ...initialState });
-    localStorage.clear()
+    Object.keys(localStorage).forEach((key) => {
+      if (key === "Bmi data") {
+      } else {
+        localStorage.setItem(key, "");
+      }
+    });
   }
 
   return (
@@ -73,4 +76,3 @@ export const Form = ({ addData }) => {
     </div>
   );
 };
-
