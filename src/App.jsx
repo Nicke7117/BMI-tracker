@@ -11,7 +11,7 @@ export const App = () => {
   }
 
   return (
-    <div className="h-screen w-screen bg-green-200 relative">
+    <div className="bg-green-200">
       <Title />
       <Form addData={bmiDataToHook} />
       <Chart />

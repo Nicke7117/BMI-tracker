@@ -41,7 +41,7 @@ export const Form = ({ addData }) => {
   }
 
   return (
-    <div className="flex justify-center w-full mt-12 h-32">
+    <div className="flex justify-center mt-0 h-32 bg-yellow-300">
       <form
         className="w-1/3 grid relative grid-cols-2 items-center"
         onSubmit={sendDataToApp}

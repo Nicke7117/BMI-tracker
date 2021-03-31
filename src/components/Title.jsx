@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export const Title = () => {
-    return (
-/*         <div className=""> */
-            <h1 className="text-center relative top-10 text-5xl">BMI Tracker</h1>
-/*         </div> */
-    )
-}
-
+  return (
+    <>
+      <h1 className="text-center pt-10 text-5xl">BMI Tracker</h1>
+      <p className="text-center pt-5 text-2xl" >Save your BMI into a graph for up to 7 days!</p>
+    </>
+  );
+};
