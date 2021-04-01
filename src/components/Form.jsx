@@ -65,7 +65,7 @@ export const Form = ({ addData }) => {
         <input
           type="submit"
           value="submit"
-          className="rounded-xl w-48 h-10 mt-2 bg-blue-200 text-xl ml-4 disabled:bg-black"
+          className="rounded-xl w-48 h-10 mt-2 bg-blue-200 text-xl ml-4"
           disabled={userData.weight === "" || userData.height === ""}
         />
       </form>

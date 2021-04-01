@@ -15,8 +15,8 @@ export const Chart = ({ bmiData }) => {
     ],
   });
   return (
-    <div className="graph-box">
-      <Line data={data} options={{ maintainAspectRatio: false }} />
+    <div className="flex justify-center px-96">
+      <Line data={data} height={400} options={{ maintainAspectRatio: false }} />
     </div>
   );
 };
