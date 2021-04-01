@@ -4,13 +4,16 @@ import { Chart } from "./components/Chart";
 import { useEffect, useState } from "react";
 
 export const App = () => {
-  const [bmiData, setbmiData] = useState([]);
+  const [bmiData, setbmiData] = useState(
+    JSON.parse(localStorage.getItem("Bmi data"))
+  );
 
   function bmiDataToHook(newbmiData) {
     setbmiData([...bmiData, newbmiData]);
   }
 
   useEffect(() => {
+    console.log("rendered");
     localStorage.setItem("Bmi data", JSON.stringify(bmiData));
   });
 
