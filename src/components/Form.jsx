@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Input } from "./Input";
 import { Inputlabel } from "./Inputlabel";
 import { v4 as uuidv4 } from "uuid";
@@ -47,19 +47,11 @@ export const Form = ({ addData }) => {
           <div className="float-left">
             <Inputlabel htmlFor="weight" />
 
-            <Input
-              id="weight"
-              onChange={updateState}
-              value={userData.weight}
-            />
+            <Input id="weight" onChange={updateState} value={userData.weight} />
           </div>
           <div className="float-left">
             <Inputlabel htmlFor="height" />
-            <Input
-              id="height"
-              onChange={updateState}
-              value={userData.height}
-            />
+            <Input id="height" onChange={updateState} value={userData.height} />
           </div>
         </section>
         <input
