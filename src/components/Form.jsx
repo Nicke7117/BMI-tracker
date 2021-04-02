@@ -4,14 +4,6 @@ import { Inputlabel } from "./Inputlabel";
 import { v4 as uuidv4 } from "uuid";
 
 export const Form = ({ addData }) => {
-  const [userData, setUserData] = useState({
-    weight: localStorage.getItem("weight"),
-    height: localStorage.getItem("height"),
-    bmi: null,
-    date: new Date().toISOString().split("T")[0],
-    id: uuidv4(),
-  });
-
   const initialState = {
     weight: "",
     height: "",
@@ -19,6 +11,8 @@ export const Form = ({ addData }) => {
     date: new Date().toISOString().split("T")[0],
     id: uuidv4(),
   };
+  
+  const [userData, setUserData] = useState(initialState);
 
   function updateState(e) {
     const targetId = e.target.id;
