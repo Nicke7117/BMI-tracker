@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 
 export const App = () => {
+
+  // Every object submitted by the form will be stored in this hook
   const [bmiData, setbmiData] = useState(
     localStorage.getItem("Bmi data") === null
       ? ""
@@ -20,7 +22,7 @@ export const App = () => {
       datasets: [
         {
           label: "BMI",
-          data: getValue("bmi"), //The BMI value
+          data: getValue("bmi"),
           fill: false,
           backgroundColor: "rgb(100, 99, 132)",
           borderColor: "rgba(255, 99, 132, 0.2)",
@@ -29,8 +31,10 @@ export const App = () => {
     });
   }, [bmiData]);
 
+  // The hook where the chart settings are stored
   const [data, setData] = useState();
 
+  //Function to get data from the bmiData hook in an array
   function getValue(key) {
     const arr = [];
     for (let i = 0; i < bmiData.length; i++) {
@@ -38,6 +42,8 @@ export const App = () => {
     }
     return arr;
   }
+
+  //Function to set the object submitted into the bmiData hook
   function bmiDataToHook(newbmiData) {
     setbmiData([...bmiData, newbmiData]);
   }
