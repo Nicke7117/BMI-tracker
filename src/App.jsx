@@ -2,9 +2,9 @@ import { Title } from "./components/Title";
 import { Form } from "./components/Form";
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import { Bmibox } from "./components/Bmibox";
 
 export const App = () => {
-
   // Every object submitted by the form will be stored in this hook
   const [bmiData, setbmiData] = useState(
     localStorage.getItem("Bmi data") === null
@@ -49,7 +49,7 @@ export const App = () => {
   }
 
   return (
-    <div className="bg-pink-300 w-screen h-screen">
+    <div className="bg-pink-300 w-full h-full">
       <Title />
       <Form addData={bmiDataToHook} />
       <div className="flex justify-center px-96">
@@ -59,6 +59,7 @@ export const App = () => {
           options={{ maintainAspectRatio: false }}
         />
       </div>
+      <Bmibox bmiData={bmiData}/>
     </div>
   );
 };
