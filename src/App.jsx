@@ -48,6 +48,11 @@ export const App = () => {
     setbmiData([...bmiData, newbmiData]);
   }
 
+  function removeItem(id) {
+    const filteredArr = bmiData.filter((item) => id !== item.id);
+    setbmiData(filteredArr);
+  }
+
   return (
     <div className="bg-pink-300 w-full h-full">
       <Title />
@@ -59,7 +64,7 @@ export const App = () => {
           options={{ maintainAspectRatio: false }}
         />
       </div>
-      <Bmibox bmiData={bmiData}/>
+      <Bmibox bmiData={bmiData} removeItem={removeItem} />
     </div>
   );
 };
