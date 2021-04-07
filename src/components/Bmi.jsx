@@ -1,4 +1,4 @@
-export const Bmi = ({ bmiData }) => {
+export const Bmi = ({ bmiData, removeItem, id }) => {
   function bmiLevel() {
     const bmi = bmiData.bmi;
     if (bmi < 18.5) {
@@ -19,6 +19,7 @@ export const Bmi = ({ bmiData }) => {
           className="h-6 w-6 absolute right-1 top-1"
           viewBox="0 0 20 20"
           fill="red"
+          onClick={() => removeItem(id)}
         >
           <path
             fillRule="evenodd"
