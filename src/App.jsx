@@ -54,7 +54,7 @@ export const App = () => {
   }
 
   return (
-    <div className="bg-pink-300 w-full h-full">
+    <div className="bg-pink-300 w-full h-full overflow-x-hidden">
       <Title />
       <Form addData={bmiDataToHook} />
       <div className="flex justify-center px-96">
